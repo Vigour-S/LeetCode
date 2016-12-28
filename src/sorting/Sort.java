@@ -124,4 +124,33 @@ public class Sort {
             heapify(arr, n, largest);
         }
     }
+
+
+    public void quickSort(int[] nums, int low, int high) {
+        if (low < high) {
+            int p = partition(nums, low, high);
+
+            //recursively sort elements before and after partition
+            quickSort(nums, low, p-1);
+            quickSort(nums, p+1, high);
+        }
+    }
+
+    // Lomuto partition scheme
+    private int partition(int[] nums, int low, int high) {
+        int i = low - 1;    //index of smaller element
+        int pivot = nums[high];
+
+        for (int j=low; j<high; j++) {
+            if (nums[j] <= pivot) {
+                i++;
+                int temp = nums[j];
+                nums[j] = nums[i];
+                nums[i] = temp;
+            }
+        }
+        nums[high] = nums[i+1];
+        nums[i+1] = pivot;
+        return i+1;
+    }
 }

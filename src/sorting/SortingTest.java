@@ -17,7 +17,8 @@ public class SortingTest {
         //sort.bubbleSort(nums);
         //sort.insertionSort(nums);
         //sort.selectionSort(nums);
-        sort.heapSort(nums);
+        //sort.heapSort(nums);
+        sort.quickSort(nums, 0, nums.length - 1);
         for (int i : nums) {
             System.out.print(i + " ");
         }
