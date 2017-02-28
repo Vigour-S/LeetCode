@@ -7,26 +7,33 @@ package contest20.contest520.contest525;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+    This problem is very tricky!
+    First, we should replace all 0 to -1
+    So we reduce this problem to solve this longest contiguous array with sum equal to 0
+    Then we use a hashTable to store the sum to index
+ */
 public class Solution {
     public int findMaxLength(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 0) nums[i] = -1;
+            if (nums[i] == 0) {
+                nums[i] = -1;
+            }
         }
 
-        Map<Integer, Integer> sumToIndex = new HashMap<>();
-        sumToIndex.put(0, -1);
-        int sum = 0, max = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        int sum = 0, res = 0;
 
         for (int i = 0; i < nums.length; i++) {
             sum += nums[i];
-            if (sumToIndex.containsKey(sum)) {
-                max = Math.max(max, i - sumToIndex.get(sum));
-            }
-            else {
-                sumToIndex.put(sum, i);
+            if (map.containsKey(sum)) {
+                res = Integer.max(res, i - map.get(sum));
+            } else {
+                map.put(sum, i);
             }
         }
 
-        return max;
+        return res;
     }
 }
