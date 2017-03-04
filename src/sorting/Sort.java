@@ -27,6 +27,11 @@ public class Sort {
             if (!swapped) {
                 break;
             }
+            try {
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

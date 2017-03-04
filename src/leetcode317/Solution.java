@@ -6,6 +6,9 @@ import java.util.*;
  * Created by xiezhuohan on 2/27/17.
  */
 
+/**
+ * It's better to search from buildings.
+ */
 public class Solution {
 
     class Enum {
